@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Ejercicio1 {
     public static void main(String[] args) {
@@ -13,9 +14,8 @@ public class Ejercicio1 {
         palabras.add("");
         System.out.println(palabras);
 
-        palabras.removeAll(Collections.singleton(null));
-        palabras.removeAll(Collections.singleton(""));
+        var r = palabras.stream().filter(i -> i != null &&  i != "").collect(Collectors.toList());
 
-        System.out.println(palabras);
+        System.out.println(r);
     }
 }

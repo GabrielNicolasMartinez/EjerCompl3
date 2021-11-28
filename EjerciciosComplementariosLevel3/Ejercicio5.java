@@ -14,9 +14,7 @@ public class Ejercicio5 {
                 new Alumno("Ballesteros", "Franco", current.minusYears(18)),
                 new Alumno("Carlos", "Kowalczuk", current.minusYears(35)));
         Map<String, Integer> out = new HashMap<>();
-        for (Alumno a : alumnos) {
-            out.put(a.nombre + " " + a.apellido, (int) ChronoUnit.YEARS.between(a.fecha, current));
-        }
+        alumnos.stream().forEach(i-> out.put(i.nombre + " " + i.apellido, (int) ChronoUnit.YEARS.between(i.fecha, current)));
         System.out.println(out);
     }
 }
